@@ -28,14 +28,6 @@ const FloatingButtonAction = ({ actions }) => {
 
     return (
         <>
-            <div className="container">
-                <h1>Selamat Datang di Website RS Vertikal</h1>
-                <p>
-                    Halaman ini dikembangkan sebagai platform pengujian untuk fitur widget
-                    chat
-                </p>
-                <div className="footer">Synergix Solution &copy; 2024</div>
-            </div>
             <ul
                 className={cn("fab-container", {open})}
                 onClick={() => setOpen(!open)}
