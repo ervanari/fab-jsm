@@ -10,11 +10,11 @@ const actions = [
 ];
 
 const App = () => {
-  return (
+    return (
       <main>
-        <Fab actions={actions} />
+        <Fab actions={actions}/>
       </main>
-  );
+    );
 };
 
 export default App;

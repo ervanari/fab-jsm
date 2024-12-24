@@ -1,35 +1,36 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-    mode: 'production',
-    entry: './src/index.js', // Replace with your entry point
+    entry: './src/index.js',
     output: {
-        filename: 'widget-jsm.js',
-        path: path.resolve(__dirname, 'build')
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'widget-jsm.bundle.js',
+        library: 'widgetJsm',
+        libraryTarget: 'umd',
+    },
+    resolve: {
+        extensions: ['.jsx', '.js'],
     },
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/, // Match .js and .jsx files
-                exclude: /node_modules/, // Exclude dependencies
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react']
-                    }
-                }
+                test: /\.jsx?$/,
+                use: 'babel-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.scss$/,
-                use: [
-                    'style-loader',  // Menyisipkan CSS ke dalam DOM
-                    'css-loader',    // Menerjemahkan file CSS
-                    'sass-loader',   // Mengonversi SCSS menjadi CSS
-                ],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+                exclude: /node_modules/,
             },
-        ]
+        ],
     },
-    resolve: {
-        extensions: ['.js', '.jsx'] // Resolve these extensions
-    }
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+        }),
+    ],
+    mode: 'production',
 };
