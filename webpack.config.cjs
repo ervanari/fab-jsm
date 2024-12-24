@@ -6,8 +6,8 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'widget-jsm.bundle.js',
-        library: 'widgetJsm',
+        filename: 'SocialMediaButtons.bundle.js',
+        library: 'SocialMediaButtons',
         libraryTarget: 'umd',
     },
     resolve: {
