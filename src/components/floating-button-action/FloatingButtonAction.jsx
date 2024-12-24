@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import cn from "classnames";
 import "./styles.scss";
 
@@ -8,23 +8,7 @@ const FloatingButtonAction = ({ actions }) => {
 
     const handleClickUrl = (url,label) => {
         label === 'Chat Bot' ? window.location.href = url : window.open(url, "_blank")
-        // if(label === 'Chat Bot' && url === ''){
-        //     FresChat()
-        // }else{
-        //     window.location.href = url
-        // }
     };
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setOpen(false);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, [actions]);
-
 
     return (
         <>
@@ -36,10 +20,8 @@ const FloatingButtonAction = ({ actions }) => {
                 </p>
                 <div className="footer">Synergix Solution &copy; 2024</div>
             </div>
-            <ul
-                className={cn("fab-container", {open})}
-                onClick={() => setOpen(!open)}
-            >
+
+            <ul className={cn("fab-container", {open})} onClick={() => setOpen(!open)}>
                 <li className="fab-button">
                     <img src="https://img.icons8.com/3d-fluency/94/online-support--v3.png" alt="Live Chat" width={30}/>
                 </li>
