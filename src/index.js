@@ -25,7 +25,7 @@ export const renderSocialMediaButtons = (agents, containerId) => {
     );
 };
 
-window.widgetJsm = { render: renderSocialMediaButtons };
+window.SocialMediaButtons = { render: renderSocialMediaButtons };
 
 
 // If you want to start measuring performance in your app, pass a function
