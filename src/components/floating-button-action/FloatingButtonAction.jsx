@@ -7,7 +7,8 @@ const FloatingButtonAction = ({ actions }) => {
     const [open, setOpen] = useState(false);
 
     const handleClickUrl = (url,label) => {
-        label === 'Chat Bot' ? window.location.href = url : window.open(url, "_blank")
+        window.open(url, "_blank")
+        // label === 'Chat Bot' ? window.location.href = url : window.open(url, "_blank")
         // if(label === 'Chat Bot' && url === ''){
         //     FresChat()
         // }else{
